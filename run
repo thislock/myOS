@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# compiles the code
+# asm
+nasm -f elf32 src/asm/bootLoader.asm -o build/start.o
+# main c code
+tcc -m32 -w -nostdlib -o build/c_code.o -c src/kmain.c 
+
+ld -m elf_i386 -T linker.ld -s -o build/lochOS.bin build/c_code.o build/start.o
+
+# boots the system
+qemu-system-x86_64 -fda build/lochOS.bin
