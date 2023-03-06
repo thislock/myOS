@@ -1,4 +1,6 @@
 
+#pragma once
+
 #ifndef GRAPHICS_DRIVER_H
 #define GRAPHICS_DRIVER_H
 

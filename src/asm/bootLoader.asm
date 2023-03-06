@@ -1,4 +1,3 @@
-
 ; runs the exturnal code that boots it into 32 bit
 %include "src/asm/32_bit.asm"
 
@@ -6,8 +5,13 @@
 halt:
 
 	mov esp, kernel_stack_top
-	extern kmain
-	call kmain
+
+	extern cmain
+	call cmain
+
+	extern cppmain
+	call cppmain
+
 	cli
 	hlt
 
