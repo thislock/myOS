@@ -59,7 +59,10 @@ times 510 - ($-$$) db 0
 dw 0xaa55
 copy_target:
 bits 32
-	hello: db "WELCOME TO LOCHOS!",0
+	; random seed for OS random
+	seed: dd 1245
+	; the length of the seed
+	seedlen: dd 4
 boot2:
 	; skipps to halt
 	jmp halt

@@ -1,5 +1,8 @@
 ; runs the exturnal code that boots it into 32 bit
-%include "src/asm/32_bit.asm"
+%include "src/asm/OS/32_bit.asm"
+
+; declares custom rng librairy
+%include "src/asm/components/rand.asm"
 
 ; calls the c code
 halt:

@@ -11,6 +11,8 @@ LDFLAGS=-m elf_i386 -T linker.ld -s
 # define targets
 all: build/lochOS.bin
 
+
+
 # x86 asembly
 build/start.o: src/asm/bootLoader.asm
 	$(AS) $(ASFLAGS) $< -o $@

@@ -83,17 +83,24 @@ int scroll_ln(int offset) {
 
 
 void print_string(char *string) {
+  // get's where the cursor is
   int offset = get_cursor();
+  // counter
   int i = 0;
+  // loops through all of the string's charecters
   while (string[i] != 0) {
+
+    // scrolls if the string is big enough
     if (offset >= MAX_ROWS * MAX_COLS * 2) {
-        offset = scroll_ln(offset);
+      offset = scroll_ln(offset);
     }
+    
+    // if it's a newline, then start a new line
     if (string[i] == '\n') {
-        offset = move_offset_to_new_line(offset);
+      offset = move_offset_to_new_line(offset);
     } else {
-        set_char_at_video_memory(string[i], offset);
-        offset += 2;
+      set_char_at_video_memory(string[i], offset);
+      offset += 2;
     }
     i++;
   }
